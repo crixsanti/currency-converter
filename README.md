@@ -13,5 +13,5 @@ Currency Converter was a project where JavaScript started to make sense in my he
   <li>CSS</li>
   <li>JavaScript</li>
 </ul>
-<a href="https://crixsanti.github.io/currency-converter/" target="_blank"></a>
+<a href="https://crixsanti.github.io/currency-converter/" target="_blank">CLICK HERE TO SEE THE PROJECT!</a>
 <img src="https://raw.githubusercontent.com/crixsanti/currency-converter/refs/heads/main/assets/currency%20converter.png">

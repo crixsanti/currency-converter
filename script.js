@@ -2,15 +2,24 @@ const selectA = document.querySelector('.select-A')
 const selectB = document.querySelector('.select-B')
 const mainButton = document.querySelector('.main-button')
 
-function convertValue() {
+const convertValue = async () => {
 const converterDe = document.querySelector('.currency-A')
 const converterPara = document.querySelector('.currency-B')
 const inputZim = document.querySelector('.main-input').value
 
-const dollarToday = 5.72
-const euroToday = 6.11
-const libraToday = 7.32
-const bitcoinToday = 348507.29
+const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
+
+// const dollarToday = 5.72
+// const euroToday = 6.11
+// const libraToday = 7.32
+// const bitcoinToday = 348507.29
+
+console.log(data)
+
+const dollarToday = data.USDBRL.high
+const euroToday = data.EURBRL.high
+// const libraToday = null
+const bitcoinToday = data.BTCBRL.high
 
 if (selectA.value == "real") {
     converterDe.innerHTML = new Intl.NumberFormat ('pt-BR', {
@@ -31,12 +40,12 @@ if (selectB.value == "euro") {
         currency: 'EUR'
     }).format(inputZim / euroToday)
 }
-if (selectB.value == "libra") {
-    converterPara.innerHTML = new Intl.NumberFormat ('en-UK', {
-        style: 'currency',
-        currency: 'GBP'
-    }).format(inputZim / libraToday)
-}
+// if (selectB.value == "libra") {
+//     converterPara.innerHTML = new Intl.NumberFormat ('en-UK', {
+//         style: 'currency',
+//         currency: 'GBP'
+//     }).format(inputZim / libraToday)
+// }
 if (selectB.value == "bitcoin") {
     converterPara.innerHTML = new Intl.NumberFormat ('en-US', {
         style: 'currency',
@@ -65,10 +74,10 @@ if (selectB.value == "euro") {
     imgB.src = 'assets/euro.png'
     paragB.innerHTML = 'Euro'
 }
-if (selectB.value == "libra") {
-    imgB.src = 'assets/libra.png'
-    paragB.innerHTML = 'Libra'
-}
+// if (selectB.value == "libra") {
+//     imgB.src = 'assets/libra.png'
+//     paragB.innerHTML = 'Libra'
+// }
 if (selectB.value == "bitcoin") {
     imgB.src = 'assets/bitcoin.png'
     paragB.innerHTML = 'Bitcoin'
